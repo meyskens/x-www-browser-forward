@@ -9,3 +9,5 @@ On the host the server runs which listens to the socket for browser calls and fo
 2) Place the client as `/usr/bin/x-www-browser` in the containers
 3) Make the server run as a service (insert SystemD here)
 4) Link the `/var/run/browser.sock` socket to the container
+
+Note: it doesn't work in every app yet due some diversity. It works in Slack!
