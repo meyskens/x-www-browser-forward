@@ -1,0 +1,20 @@
+language: go
+go:
+- 1.8
+install:
+- go vet ./...
+- cd client && go build . && cd ..
+- cd server && go build . && cd ..
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: Odwt4DwCsB4TZJyi5Z4X1r8gCWAWoLoq7l2zAtXBU5uMpc9PpL3RHYL7J0aeiGg0zaBdWjI09Rsrz1VKrDPw+DfWZr4kisKIJCd1Aag2/IItMFPWRrU703iavCGns/RUoryf3K0Rlt7GX6d+Dx9Aifyq8FGsGsPDsLTRtr7PO5l7/VBb+4YvNpLFPsHrTMYig2nvGAxE2oG0XVSTuoM2f4/D5i6VlusZZnAGZcuvxJgI8xefr2caUIm7ikJB7jb3aKeeVppe4oHaZY2YLbTSuzclkpqTsBjI8kwYWqdHyhgNUp+ylVngXlGevvC4GyaJe/iuvgal1Fde/57701qE2k3Cj4IZdGrzuHX8BWuugvuq0+WzpIFiEHZuvo85sRSg4VNT8v6Z1sSiNtfi+RkGWPowEXnOf2mvfJkBJNygOOKG3ugK0sEpo4cV9tiSZsWtYkHNljaxBSMHdIMk+m1vPwsAPnufbmb2JArlAeIq9XZ9tuTjvDWYUT2ecTFFaT5CnrkV9xIBQnX/MKCiaPwfLnSvPEMqUdM8o0leVje7NrU2Uob7xWKctvjARIfgYWCWw1k/u9SXcqDCoD2ttA7poM8lUmjGI0LYrnnD9q31h3w1pNrW+eeGlIBQcUghF023lKo8aPowameMV+MvgajQb0QX+Nw8N0mTSnPoNT1OxSI=
+  file: 
+    - server/server
+    - client/server
+  overwrite: true
+  on:
+    repo: meyskens/x-www-browser-forward
+    branch: "master"
+    tags: true
