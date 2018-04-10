@@ -10,4 +10,17 @@ On the host the server runs which listens to the socket for browser calls and fo
 3) Make the server run as a service (insert SystemD here)
 4) Link the `/var/run/browser.sock` socket to the container
 
-Note: it doesn't work in every app yet due some diversity. It works in Slack!
+Note: it doesn't work in every app yet due some diversity. It works in Slack! Some apps, like Thunderbird, can also be modified to point to the correct application that opens the browser.
+
+### Optional command line arguments for the server part
+
+```
+Usage of x-www-browser-forwarder:
+  -browser-cmd string
+        Command to open URL (default "x-www-browser")
+  -socket-file string
+        Socket address (default "/var/run/browser.sock")
+```
+
+Note: The client defaults are not adjustable since you have full control with Docker on how to map the browser command and socket into the container.
+
