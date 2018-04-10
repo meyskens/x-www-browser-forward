@@ -1,0 +1,11 @@
+[Unit]
+Description=x-www-forwarder
+
+[Service]
+# %h expands to $HOME
+ExecStart=%h/localdata/bin/x-www-forwarder-server -socket-file %h/.x-www-forwarder.sock -browser-cmd %h/repos/dotfiles/bin/browser-exec
+
+[Install]
+WantedBy=default.target
+
+
